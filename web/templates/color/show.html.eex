@@ -9,5 +9,5 @@
 
 </ul>
 
-<%= link "Edit", to: color_path(@conn, :edit, @color) %>
+<%= link "Edit", to: color_path(@conn, :edit, @color) %> | 
 <%= link "Back", to: color_path(@conn, :index) %>
