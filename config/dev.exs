@@ -34,8 +34,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :checkboxes_ex, CheckboxesEx.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "test",
+  password: "change_on_install",
   database: "checkboxes_ex_dev",
   hostname: "localhost",
   pool_size: 10
