@@ -1,0 +1,13 @@
+<h2>Show color</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @color.name %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: color_path(@conn, :edit, @color) %>
+<%= link "Back", to: color_path(@conn, :index) %>

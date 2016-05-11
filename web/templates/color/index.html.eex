@@ -1,0 +1,26 @@
+<h2>Listing colors</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for color <- @colors do %>
+    <tr>
+      <td><%= color.name %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: color_path(@conn, :show, color), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: color_path(@conn, :edit, color), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: color_path(@conn, :delete, color), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New color", to: color_path(@conn, :new) %>
