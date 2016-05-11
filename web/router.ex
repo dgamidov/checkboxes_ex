@@ -17,6 +17,9 @@ defmodule CheckboxesEx.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    resources "/colors", ColorController
+    resources "/sizes", SizeController
+    resources "/products", ProductController
   end
 
   # Other scopes may use custom stacks.
