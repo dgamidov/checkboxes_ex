@@ -17,7 +17,21 @@
     <%= @product.description %>
   </li>
 
+  <li>
+    <strong>Colors:</strong>
+    <%= for color <- @product.colors do %>
+    <%= color.name <> "," %>
+    <% end %>
+  </li>
+
+  <li>
+    <strong>Sizes:</strong>
+    <%= for size <- @product.sizes do %>
+    <%= size.name <> "," %>
+    <% end %>
+  </li>
+
 </ul>
 
-<%= link "Edit", to: product_path(@conn, :edit, @product) %>
+<%= link "Edit", to: product_path(@conn, :edit, @product) %> | 
 <%= link "Back", to: product_path(@conn, :index) %>

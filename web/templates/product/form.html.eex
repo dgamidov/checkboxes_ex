@@ -23,6 +23,27 @@
     <%= error_tag f, :description %>
   </div>
 
+  <div class="row">
+    <div class="col-md-4 form-group">
+      <%= label f, :checked_colors, "Colors:", class: "control-label" %>
+      <br>
+      <%= for {name, id} <- @colors do %>
+        <% checked = id in @product_colors_ids %>
+        <div><%= checkbox :checked_colors, "#{id}", value: name, checked: checked %> <%= name %></div>
+      <%= end %>
+    </div>
+
+    <div class="col-md-4 form-group">
+      <%= label f, :checked_sizes, "Sizes:", class: "control-label" %>
+      <br>
+      <%= for {name, id} <- @sizes do %>
+        <% checked = id in @product_sizes_ids %>
+        <div><%= checkbox :checked_sizes, "#{id}", value: name, checked: checked %> <%= name %></div>
+      <%= end %>
+    </div>
+
+  </div><!-- /row -->
+
   <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
