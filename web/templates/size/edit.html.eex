@@ -1,0 +1,6 @@
+<h2>Edit size</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: size_path(@conn, :update, @size) %>
+
+<%= link "Back", to: size_path(@conn, :index) %>

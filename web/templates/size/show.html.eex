@@ -1,0 +1,13 @@
+<h2>Show size</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @size.name %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: size_path(@conn, :edit, @size) %>
+<%= link "Back", to: size_path(@conn, :index) %>

@@ -1,0 +1,26 @@
+<h2>Listing sizes</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for size <- @sizes do %>
+    <tr>
+      <td><%= size.name %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: size_path(@conn, :show, size), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: size_path(@conn, :edit, size), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: size_path(@conn, :delete, size), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New size", to: size_path(@conn, :new) %>
