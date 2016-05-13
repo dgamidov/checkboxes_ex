@@ -13,14 +13,22 @@ defmodule CheckboxesEx.ProductController do
 
   def new(conn, _params) do
     changeset = Product.changeset(%Product{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset,
+                             product_colors_ids: [],
+                             product_sizes_ids: [])
   end
 
   def create(conn, %{"product" => product_params}) do
     changeset = Product.changeset(%Product{}, product_params)
 
+    checked_colors_ids = checked_ids(conn, "checked_colors")
+    checked_sizes_ids = checked_ids(conn, "checked_sizes")
+
     case Repo.insert(changeset) do
-      {:ok, _product} ->
+      {:ok, product} ->
+        product_id = product.id
+        do_update_intermediate_table(ProductColor, product_id, [], checked_colors_ids)
+        do_update_intermediate_table(ProductSize, product_id, [], checked_sizes_ids)
         conn
         |> put_flash(:info, "Product created successfully.")
         |> redirect(to: product_path(conn, :index))

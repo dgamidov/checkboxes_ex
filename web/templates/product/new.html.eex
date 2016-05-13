@@ -1,6 +1,10 @@
 <h2>New product</h2>
 
-<%= render "form_new_product.html", changeset: @changeset, colors: @colors, sizes: @sizes,
+<%= render "form.html", changeset: @changeset,
+                        colors: @colors,
+                        sizes: @sizes,
+                        product_colors_ids: @product_colors_ids,
+                        product_sizes_ids: @product_sizes_ids,
                         action: product_path(@conn, :create) %>
 
 <%= link "Back", to: product_path(@conn, :index) %>
